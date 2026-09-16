@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Truck, ShieldAlert, Zap, Globe, ArrowRight, CheckCircle2 } from "lucide-react";
-import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignInButton, Show } from "@clerk/nextjs";
 
 export default function LandingPage() {
   const containerVariants = {
@@ -36,18 +36,18 @@ export default function LandingPage() {
           <div className="flex items-center gap-6">
             <Link href="#features" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Features</Link>
             <Link href="#pricing" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Pricing</Link>
-            <SignedOut>
+            <Show when="signed-out">
               <SignInButton mode="modal">
                 <button className="text-sm font-medium px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-md transition-colors cursor-pointer">
                   Login
                 </button>
               </SignInButton>
-            </SignedOut>
-            <SignedIn>
+            </Show>
+            <Show when="signed-in">
               <Link href="/dashboard" className="text-sm font-medium px-4 py-2 bg-[var(--primary)] hover:bg-blue-600 text-white rounded-md transition-colors shadow-lg shadow-blue-500/20">
                 Dashboard
               </Link>
-            </SignedIn>
+            </Show>
           </div>
         </div>
       </nav>
@@ -80,21 +80,21 @@ export default function LandingPage() {
               Automated, real-time FMCSA compliance monitoring for freight brokerages. We ping you on Slack the exact second a carrier in your network drops their insurance or authority.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <SignedOut>
+              <Show when="signed-out">
                 <SignInButton mode="modal">
                   <button className="w-full sm:w-auto px-8 py-4 bg-[var(--primary)] hover:bg-blue-600 text-white rounded-lg font-medium transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] flex items-center justify-center gap-2 cursor-pointer">
                     Start Free 14-Day Trial <ArrowRight className="w-5 h-5" />
                   </button>
                 </SignInButton>
-              </SignedOut>
-              <SignedIn>
+              </Show>
+              <Show when="signed-in">
                 <Link 
                   href="/dashboard"
                   className="w-full sm:w-auto px-8 py-4 bg-[var(--primary)] hover:bg-blue-600 text-white rounded-lg font-medium transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] flex items-center justify-center gap-2"
                 >
                   Go to Dashboard <ArrowRight className="w-5 h-5" />
                 </Link>
-              </SignedIn>
+              </Show>
               <Link 
                 href="#demo"
                 className="w-full sm:w-auto px-8 py-4 bg-[var(--card)] hover:bg-white/5 border border-white/10 text-white rounded-lg font-medium transition-all flex items-center justify-center gap-2"
