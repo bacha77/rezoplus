@@ -29,10 +29,10 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[var(--background)] selection:bg-[var(--primary)] selection:text-white">
       {/* Navigation */}
-      <nav className="border-b border-white/10 bg-black/50 backdrop-blur-md sticky top-0 z-50">
+      <nav className="border-b border-white/5 glass-panel sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/logo.jpg" alt="RezoPlus Logo" className="h-8 rounded-md" />
+            <img src="/logo.jpg" alt="RezoPlus Logo" className="h-8 rounded-md shadow-lg shadow-blue-500/20" />
             <span className="text-xl font-bold text-white tracking-tight">RezoPlus</span>
           </div>
           <div className="flex items-center gap-6">
@@ -41,7 +41,7 @@ export default function LandingPage() {
             {!isLoaded ? (
               <div className="w-16 h-8 bg-white/10 animate-pulse rounded-md" />
             ) : isSignedIn ? (
-              <Link href="/dashboard" className="text-sm font-medium px-4 py-2 bg-[var(--primary)] hover:bg-blue-600 text-white rounded-md transition-colors shadow-lg shadow-blue-500/20">
+              <Link href="/dashboard" className="text-sm font-medium px-4 py-2 bg-[var(--primary)] hover:bg-indigo-500 text-white rounded-md transition-colors shadow-[0_0_15px_rgba(79,70,229,0.4)]">
                 Dashboard
               </Link>
             ) : (
@@ -58,7 +58,7 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
         {/* Background Gradients */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--primary)] opacity-20 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--primary)] opacity-20 blur-[120px] rounded-full pointer-events-none animate-float" />
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
@@ -111,7 +111,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Grid */}
-      <section id="features" className="py-24 px-6 border-t border-white/5 bg-black/20">
+      <section id="features" className="py-24 px-6 border-t border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Why Top Brokerages Trust Us</h2>
@@ -125,10 +125,10 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
-            <motion.div variants={itemVariants} className="bg-[var(--card)] border border-[var(--border)] p-8 rounded-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-3xl -mr-10 -mt-10 transition-opacity group-hover:opacity-100 opacity-0" />
-              <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mb-6">
-                <ShieldAlert className="w-6 h-6 text-blue-400" />
+            <motion.div variants={itemVariants} className="glass-panel p-8 rounded-2xl relative overflow-hidden group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(79,70,229,0.15)]">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 blur-3xl -mr-10 -mt-10 transition-opacity duration-500 group-hover:opacity-100 opacity-0" />
+              <div className="w-12 h-12 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center mb-6">
+                <ShieldAlert className="w-6 h-6 text-indigo-400 group-hover:animate-bounce" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Instant Fraud Alerts</h3>
               <p className="text-gray-400 leading-relaxed">
@@ -136,10 +136,10 @@ export default function LandingPage() {
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="bg-[var(--card)] border border-[var(--border)] p-8 rounded-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 blur-3xl -mr-10 -mt-10 transition-opacity group-hover:opacity-100 opacity-0" />
-              <div className="w-12 h-12 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Zap className="w-6 h-6 text-indigo-400" />
+            <motion.div variants={itemVariants} className="glass-panel p-8 rounded-2xl relative overflow-hidden group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(79,70,229,0.15)]">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 blur-3xl -mr-10 -mt-10 transition-opacity duration-500 group-hover:opacity-100 opacity-0" />
+              <div className="w-12 h-12 bg-purple-500/10 border border-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+                <Zap className="w-6 h-6 text-purple-400 group-hover:animate-bounce" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Historical Analytics</h3>
               <p className="text-gray-400 leading-relaxed">
@@ -147,10 +147,10 @@ export default function LandingPage() {
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="bg-[var(--card)] border border-[var(--border)] p-8 rounded-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 blur-3xl -mr-10 -mt-10 transition-opacity group-hover:opacity-100 opacity-0" />
-              <div className="w-12 h-12 bg-purple-500/10 border border-purple-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Globe className="w-6 h-6 text-purple-400" />
+            <motion.div variants={itemVariants} className="glass-panel p-8 rounded-2xl relative overflow-hidden group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(79,70,229,0.15)]">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 blur-3xl -mr-10 -mt-10 transition-opacity duration-500 group-hover:opacity-100 opacity-0" />
+              <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mb-6">
+                <Globe className="w-6 h-6 text-blue-400 group-hover:animate-bounce" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Enterprise B2B API</h3>
               <p className="text-gray-400 leading-relaxed">
@@ -171,7 +171,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Basic */}
-            <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-8 flex flex-col">
+            <div className="glass-panel rounded-2xl p-8 flex flex-col">
               <h3 className="text-xl font-semibold text-white mb-2">Basic</h3>
               <p className="text-gray-400 text-sm mb-6">Perfect for small brokerages.</p>
               <div className="mb-6">
@@ -195,8 +195,8 @@ export default function LandingPage() {
             </div>
 
             {/* Pro (Highlighted) */}
-            <div className="bg-gradient-to-b from-[var(--primary)]/20 to-[var(--card)] border border-[var(--primary)]/50 rounded-2xl p-8 flex flex-col relative transform md:-translate-y-4 shadow-2xl">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-[var(--primary)] text-white text-xs font-bold rounded-full uppercase tracking-wider">
+            <div className="bg-gradient-to-br from-indigo-600/20 via-[var(--card)] to-purple-600/20 border border-[var(--primary)]/50 rounded-2xl p-8 flex flex-col relative transform md:-translate-y-4 shadow-[0_0_50px_rgba(79,70,229,0.2)] animate-sweep overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-[var(--primary)] text-white text-xs font-bold rounded-full uppercase tracking-wider shadow-[0_0_20px_rgba(79,70,229,0.5)]">
                 Most Popular
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Professional</h3>
@@ -219,13 +219,13 @@ export default function LandingPage() {
                   <CheckCircle2 className="w-5 h-5 text-[var(--primary)] shrink-0" /> CSV Bulk Upload
                 </li>
               </ul>
-              <Link href="/dashboard" className="w-full block text-center px-4 py-3 bg-[var(--primary)] hover:bg-blue-600 text-white rounded-lg font-medium transition-colors shadow-lg">
+              <Link href="/dashboard" className="w-full block text-center px-4 py-3 bg-[var(--primary)] hover:bg-indigo-500 text-white rounded-lg font-medium transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(79,70,229,0.6)] hover:scale-[1.02]">
                 Start Free Trial
               </Link>
             </div>
 
             {/* Enterprise */}
-            <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-8 flex flex-col">
+            <div className="glass-panel rounded-2xl p-8 flex flex-col">
               <h3 className="text-xl font-semibold text-white mb-2">Enterprise</h3>
               <p className="text-gray-400 text-sm mb-6">Direct TMS Integrations.</p>
               <div className="mb-6">
