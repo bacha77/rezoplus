@@ -42,7 +42,7 @@ export async function POST(req: Request) {
       subscription.id,
       subscription.items.data[0].price.id,
       subscription.status,
-      new Date(subscription.current_period_end * 1000)
+      new Date((subscription as any).current_period_end * 1000)
     );
   }
 
@@ -66,7 +66,7 @@ export async function POST(req: Request) {
       args: [
         subscription.items.data[0].price.id,
         subscription.status,
-        new Date(subscription.current_period_end * 1000).toISOString(),
+        new Date((subscription as any).current_period_end * 1000).toISOString(),
         subscription.id
       ]
     });
